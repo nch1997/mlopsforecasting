@@ -37,26 +37,26 @@ stages:
     params:
       params.yaml:
         train_tune.n_trials: 10
-        train_tune.seed: 20170425
+        train_tune.seed: 20170422
     outs:
     - path: data/tuning.png
-      md5: ea591dff65f0214646a85d7ddd0c419d
-      size: 54132
+      md5: a305869fc3f8aa6b86b4c330342de23c
+      size: 48904
     - path: model/tunedmodel0.05.txt
-      md5: 96014772ee935194095b8ad85e5e6812
-      size: 25188
+      md5: b894013419238645214e650dcd42fbdc
+      size: 36905
     - path: model/tunedmodel0.25.txt
-      md5: b00e60d69d83c4437b322078ca79ffe8
-      size: 51454
+      md5: 1fef39d185a13bf1090608785c4f36ca
+      size: 108808
     - path: model/tunedmodel0.5.txt
-      md5: fe3669adb7252e2b9c68f17fd7e43016
-      size: 53268
+      md5: 107feeb8a62cec9fdc3724789c3ec33d
+      size: 131471
     - path: model/tunedmodel0.75.txt
-      md5: f710f265de8611e1f02269a861e8382d
-      size: 50740
+      md5: b69f2a781ae62c568e672a8815533566
+      size: 131856
     - path: model/tunedmodel0.95.txt
-      md5: c599a87a7ca099acf44e0a1a41ce1322
-      size: 19736
+      md5: cdb43b5dbf9558ad25958c904ce803fb
+      size: 23191
   evaluation:
     cmd: python src/evaluation.py
     deps:
@@ -64,27 +64,27 @@ stages:
       md5: c1976c7d50152b60323190c764d8a703
       size: 52658
     - path: model/tunedmodel0.05.txt
-      md5: 96014772ee935194095b8ad85e5e6812
-      size: 25188
+      md5: b894013419238645214e650dcd42fbdc
+      size: 36905
     - path: model/tunedmodel0.25.txt
-      md5: b00e60d69d83c4437b322078ca79ffe8
-      size: 51454
+      md5: 1fef39d185a13bf1090608785c4f36ca
+      size: 108808
     - path: model/tunedmodel0.5.txt
-      md5: fe3669adb7252e2b9c68f17fd7e43016
-      size: 53268
+      md5: 107feeb8a62cec9fdc3724789c3ec33d
+      size: 131471
     - path: model/tunedmodel0.75.txt
-      md5: f710f265de8611e1f02269a861e8382d
-      size: 50740
+      md5: b69f2a781ae62c568e672a8815533566
+      size: 131856
     - path: model/tunedmodel0.95.txt
-      md5: c599a87a7ca099acf44e0a1a41ce1322
-      size: 19736
+      md5: cdb43b5dbf9558ad25958c904ce803fb
+      size: 23191
     params:
       params.yaml:
-        evaluation.seed: 20170425
+        evaluation.seed: 20170422
     outs:
     - path: data/metrics.json
-      md5: a2b66b781ba27d112b1b35c9b7c4a277
+      md5: 50e558d70931af30490685b9d8a1f916
       size: 100
     - path: data/sampledailyprediciton.png
-      md5: e55b60d90dad147fd65e35c7d8456a37
-      size: 124892
+      md5: 0a4a5a28f2fcf4b3d841508546469109
+      size: 96027

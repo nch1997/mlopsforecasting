@@ -50,10 +50,15 @@ jobs:
           dvc repro
           dvc push
 
+          echo ls data/
+
           # Create CML report
           echo "## Feature Importance and Selection" >> report.md
           cml publish data/feature_importance.png --md >> report.md
           cml publish data/featureselection.png --md >> report.md
+
+          echo "## Tuning" >> report.md
+          cml publish data/tuning.png --md >> report.md
 
           echo "## Metrics" >> report.md
           cat data/metrics.json > report.md
