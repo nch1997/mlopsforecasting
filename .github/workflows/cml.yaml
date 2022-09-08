@@ -52,6 +52,9 @@ jobs:
 
           ls data/
 
+          # Commit all files generated to a new branch to create pull request into dev branch
+          cml pr --squash --skip-ci .
+
           # Create CML report
           echo "## Feature Importance and Selection" >> report.md
           cml publish data/feature_importance.png --md >> report.md
@@ -64,5 +67,6 @@ jobs:
           cat data/metrics.json >> report.md
           
           echo "## Sample Predictions" >> report.md
-          #cml publish data/sampledailyprediciton.png --md >> report.md
-          cml send-comment --update report.md
+          cml publish data/sampledailyprediciton.png --md >> report.md
+
+          cml send-comment --pr --update report.md
