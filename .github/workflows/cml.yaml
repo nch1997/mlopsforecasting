@@ -64,5 +64,5 @@ jobs:
           cat data/metrics.json > report.md
           
           echo "## Sample Predictions" >> report.md
-          #cml publish data/sampledailyprediction.png --md >> report.md
-          cml send-comment --pr --update report.md
+          #cml publish data/sampledailyprediciton.png --md >> report.md
+          cml send-comment --update report.md
