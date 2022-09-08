@@ -1,0 +1,8 @@
+train_tune:
+  n_trials: 10
+  seed: 20170425
+evaluation:
+  seed: 20170425
+
+
+

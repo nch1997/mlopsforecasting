@@ -1,0 +1,45 @@
+# when using dvc pipeline dvc will track all the outs
+# when push dvc it will push all the outs
+stages:
+  preprocessing:
+    cmd: python src/preprocessing.py
+    deps:
+    - data/data.csv
+    - src/preprocessing.py
+    outs:
+    - data/preprocess.csv
+    - data/train.csv
+    - data/test.csv
+    - data/feature_importance.png
+    - data/featureselection.png
+    
+  train_tune:
+    cmd: python src/train_tune.py
+    deps:
+    - data/train.csv
+    - src/train_tune.py
+    params:
+    - train_tune.n_trials
+    - train_tune.seed
+    outs:
+    - data/tuning.png
+    - model/tunedmodel0.05.txt
+    - model/tunedmodel0.25.txt
+    - model/tunedmodel0.5.txt
+    - model/tunedmodel0.75.txt
+    - model/tunedmodel0.95.txt
+
+  evaluation:
+    cmd: python src/evaluation.py
+    deps:
+    - data/test.csv
+    - model/tunedmodel0.05.txt
+    - model/tunedmodel0.25.txt
+    - model/tunedmodel0.5.txt
+    - model/tunedmodel0.75.txt
+    - model/tunedmodel0.95.txt
+    params:
+    - evaluation.seed
+    outs:
+    - data/sampledailyprediciton.png
+    - data/metrics.json

@@ -1,0 +1,90 @@
+schema: '2.0'
+stages:
+  preprocessing:
+    cmd: python src/preprocessing.py
+    deps:
+    - path: data/data.csv
+      md5: d38c0400d911f88c862a2d08dc96fddb
+      size: 49028
+    - path: src/preprocessing.py
+      md5: 5b07b95c96b6efcdf07c1df65a0b59ff
+      size: 5405
+    outs:
+    - path: data/feature_importance.png
+      md5: 56175c63ee94cf423b85ead2f9a39cf4
+      size: 21517
+    - path: data/featureselection.png
+      md5: 91f49323e84dfa00020c9a2e1f7b2a08
+      size: 69543
+    - path: data/preprocess.csv
+      md5: ffe5104b90e8d33ad7b6c6aa1330dcc5
+      size: 261427
+    - path: data/test.csv
+      md5: c1976c7d50152b60323190c764d8a703
+      size: 52658
+    - path: data/train.csv
+      md5: ebc32bb6a809cba87936c3a967a5d22e
+      size: 208857
+  train_tune:
+    cmd: python src/train_tune.py
+    deps:
+    - path: data/train.csv
+      md5: ebc32bb6a809cba87936c3a967a5d22e
+      size: 208857
+    - path: src/train_tune.py
+      md5: 922141adb6bea43ba28840873921168a
+      size: 7875
+    params:
+      params.yaml:
+        train_tune.n_trials: 10
+        train_tune.seed: 20170425
+    outs:
+    - path: data/tuning.png
+      md5: ea591dff65f0214646a85d7ddd0c419d
+      size: 54132
+    - path: model/tunedmodel0.05.txt
+      md5: 96014772ee935194095b8ad85e5e6812
+      size: 25188
+    - path: model/tunedmodel0.25.txt
+      md5: b00e60d69d83c4437b322078ca79ffe8
+      size: 51454
+    - path: model/tunedmodel0.5.txt
+      md5: fe3669adb7252e2b9c68f17fd7e43016
+      size: 53268
+    - path: model/tunedmodel0.75.txt
+      md5: f710f265de8611e1f02269a861e8382d
+      size: 50740
+    - path: model/tunedmodel0.95.txt
+      md5: c599a87a7ca099acf44e0a1a41ce1322
+      size: 19736
+  evaluation:
+    cmd: python src/evaluation.py
+    deps:
+    - path: data/test.csv
+      md5: c1976c7d50152b60323190c764d8a703
+      size: 52658
+    - path: model/tunedmodel0.05.txt
+      md5: 96014772ee935194095b8ad85e5e6812
+      size: 25188
+    - path: model/tunedmodel0.25.txt
+      md5: b00e60d69d83c4437b322078ca79ffe8
+      size: 51454
+    - path: model/tunedmodel0.5.txt
+      md5: fe3669adb7252e2b9c68f17fd7e43016
+      size: 53268
+    - path: model/tunedmodel0.75.txt
+      md5: f710f265de8611e1f02269a861e8382d
+      size: 50740
+    - path: model/tunedmodel0.95.txt
+      md5: c599a87a7ca099acf44e0a1a41ce1322
+      size: 19736
+    params:
+      params.yaml:
+        evaluation.seed: 20170425
+    outs:
+    - path: data/metrics.json
+      md5: a2b66b781ba27d112b1b35c9b7c4a277
+      size: 100
+    - path: data/sampledailyprediciton.png
+      md5: e55b60d90dad147fd65e35c7d8456a37
+      size: 124892
