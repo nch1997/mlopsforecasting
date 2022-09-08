@@ -52,10 +52,10 @@ jobs:
           dvc repro
           dvc push
 
-          ls data/
+          #ls data/
 
           # Commit all files generated to a new branch to create pull request into dev branch
-          cml pr --squash --skip-ci .
+          cml pr --skip-ci .
 
           # Create CML report
           echo "## Feature Importance and Selection" >> report.md
