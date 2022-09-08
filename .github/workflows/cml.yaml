@@ -61,7 +61,7 @@ jobs:
           cml publish data/tuning.png --md >> report.md
 
           echo "## Metrics" >> report.md
-          cat data/metrics.json > report.md
+          cat data/metrics.json >> report.md
           
           echo "## Sample Predictions" >> report.md
           #cml publish data/sampledailyprediciton.png --md >> report.md
