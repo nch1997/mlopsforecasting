@@ -1,6 +1,8 @@
 # when using dvc pipeline dvc will track all the outs
 # when push dvc it will push all the outs
 # find out a way to only push files u want
+# remember to remove windows dependencies in requirements.txt when run in github actiosn (ubuntu)
+# search "win" in requirements.txt
 stages:
   preprocessing:
     cmd: python src/preprocessing.py
