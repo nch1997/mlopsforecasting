@@ -29,9 +29,9 @@ jobs:
     timeout-minutes: 120 # 2h
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: '3.9'
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
@@ -47,12 +47,18 @@ jobs:
           pip install -r requirements.txt
 
           # reproduce pipeline and data to dvc push
+          dvc pull
           dvc repro
           dvc push
 
           # Create CML report
-          cat data/metrics.json > report.md
+          echo "## Feature Importance and Selection" >> report.md
           cml publish data/feature_importance.png --md >> report.md
           cml publish data/featureselection.png --md >> report.md
+
+          echo "## Metrics" >> report.md
+          cat data/metrics.json > report.md
+          
+          echo "## Sample Predictions" >> report.md
           cml publish data/simpledailyprediction.png --md >> report.md
           cml send-comment --pr --update report.md
