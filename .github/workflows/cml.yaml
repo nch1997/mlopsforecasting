@@ -50,7 +50,7 @@ jobs:
           dvc repro
           dvc push
 
-          echo ls data/
+          ls data/
 
           # Create CML report
           echo "## Feature Importance and Selection" >> report.md
@@ -64,5 +64,5 @@ jobs:
           cat data/metrics.json > report.md
           
           echo "## Sample Predictions" >> report.md
-          cml publish data/sampledailyprediction.png --md >> report.md
+          #cml publish data/sampledailyprediction.png --md >> report.md
           cml send-comment --pr --update report.md
