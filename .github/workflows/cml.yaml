@@ -41,7 +41,6 @@ jobs:
           REPO_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          S3_URL: ${{ secrets.S3_URL}}
         run: |
           cml ci
           pip install -r requirements.txt

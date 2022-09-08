@@ -1,5 +1,6 @@
 # when using dvc pipeline dvc will track all the outs
 # when push dvc it will push all the outs
+# find out a way to only push files u want
 stages:
   preprocessing:
     cmd: python src/preprocessing.py
