@@ -28,7 +28,9 @@ jobs:
     runs-on: [self-hosted, cml-runner]
     timeout-minutes: 120 # 2h
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
       - uses: actions/setup-python@v4
         with:
           python-version: '3.8'
