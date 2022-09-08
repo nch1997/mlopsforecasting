@@ -1,5 +1,4 @@
 absl-py==1.0.0
-aiobotocore
 aiohttp==3.8.1
 aiohttp-retry==2.8.3
 aioitertools==0.10.0
@@ -16,12 +15,10 @@ asyncssh==2.12.0
 atpublic==3.1.1
 attrs==22.1.0
 autopage==0.5.0
-awscli==1.25.69
 backcall==0.2.0
 billiard==3.6.4.0
 bleach==4.1.0
 boto3==1.24.59
-botocore
 cachetools==5.0.0
 celery==5.2.7
 certifi==2021.10.8
