@@ -55,7 +55,7 @@ jobs:
           #ls data/
 
           # Commit all files generated to a new branch to create pull request into dev branch
-          #cml pr --skip-ci .
+          cml pr --skip-ci .
 
           # Create CML report
           echo "## Feature Importance and Selection" >> report.md
@@ -71,7 +71,5 @@ jobs:
           echo "## Metrics" >> report.md
           cat data/metrics.json >> report.md
           
-
-
-          #cml send-comment --pr --update report.md
-          cml send-comment --update report.md
+          cml send-comment --pr --update report.md
+          # cml send-comment --update report.md
