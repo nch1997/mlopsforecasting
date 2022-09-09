@@ -65,11 +65,13 @@ jobs:
           echo "## Tuning" >> report.md
           cml publish data/tuning.png --md >> report.md
 
+          echo "## Predictions" >> report.md
+          cml publish data/sampledailyprediciton.png --md >> report.md
+
           echo "## Metrics" >> report.md
           cat data/metrics.json >> report.md
           
-          echo "## Sample Predictions" >> report.md
-          cml publish data/sampledailyprediciton.png --md >> report.md
+
 
           #cml send-comment --pr --update report.md
           cml send-comment --update report.md
